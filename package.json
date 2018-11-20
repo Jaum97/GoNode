@@ -1,11 +1,17 @@
 {
-  "name": "GoNode",
+  "name": "gonode",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Jaum97/GoNode.git",
   "author": "ChilenoSika <jaum97@yahoo.com.br>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
   }
 }
