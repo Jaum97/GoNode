@@ -1,0 +1,8 @@
+{
+  "name": "GoNode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Jaum97/GoNode.git",
+  "author": "ChilenoSika <jaum97@yahoo.com.br>",
+  "license": "MIT"
+}
