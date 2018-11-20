@@ -1,24 +1,35 @@
-const express = require("express");
+const express = require('express')
+const nunjucks = require('nunjucks')
+const app = express()
+const users = ['Joaozinho', 'Pedrinho', 'Zezinho']
 
-const app = express();
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app,
+  watch: true
+})
 
-const logMiddleware = (req, res, next) => {
-    console.log(
-        `HOST: ${req.headers.host} | URL: ${req.url} | METHOD: ${req.method}`
-    );
+app.use(
+  express.urlencoded({
+    extended: false
+  })
+)
 
-    return next();
-};
-
-app.use(logMiddleware);
+app.set('view engine', 'njk')
 
 app.get('/', (req, res) => {
-    return res.send(`Welcome, ${req.query.name}`);
-});
+  return res.render('list', {
+    users
+  })
+})
 
-app.get('/name/:name', (req, res) => {
-    return res.json({
-        message: `Welcomey, ${req.params.name}`
-    });
-});
-app.listen(3000);
+app.get('/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/create', (req, res) => {
+  users.push(req.body.user)
+  return res.redirect('/')
+})
+
+app.listen(3000)
