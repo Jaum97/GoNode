@@ -1,5 +1,0 @@
-[{
-    "key": "shift+alt+a shift+alt+f",
-    "command": "commandId",
-    "when": "editorTextFocus"
-}]
